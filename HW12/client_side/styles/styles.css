@@ -7,9 +7,20 @@
   unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
 }
 
-#grad {
-    background-image: linear-gradient(to bottom right, red, yellow);
+/* SignUp Page */
+#signup-body {
+  background: linear-gradient(135deg, #e38be4, #9b7ad4);
 }
+
+.signup-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+}
+/* End Of SignUp Page */
 
 /* SignIn Page */
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
@@ -102,7 +113,7 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
-body {
+#signin-body {
   background: #76b852; /* fallback for old browsers */
   background: rgb(141,194,111);
   background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
