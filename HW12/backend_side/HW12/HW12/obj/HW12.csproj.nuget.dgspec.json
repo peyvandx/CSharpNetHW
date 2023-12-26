@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Maktab - 104 - CSharp\\HW12\\backend_side\\HW12\\HW12\\HW12.csproj": {}
+    "D:\\Maktab - 104 - CSharp\\HW12\\HW12\\backend_side\\HW12\\HW12\\HW12.csproj": {}
   },
   "projects": {
-    "D:\\Maktab - 104 - CSharp\\HW12\\backend_side\\HW12\\HW12\\HW12.csproj": {
+    "D:\\Maktab - 104 - CSharp\\HW12\\HW12\\backend_side\\HW12\\HW12\\HW12.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Maktab - 104 - CSharp\\HW12\\backend_side\\HW12\\HW12\\HW12.csproj",
+        "projectUniqueName": "D:\\Maktab - 104 - CSharp\\HW12\\HW12\\backend_side\\HW12\\HW12\\HW12.csproj",
         "projectName": "HW12",
-        "projectPath": "D:\\Maktab - 104 - CSharp\\HW12\\backend_side\\HW12\\HW12\\HW12.csproj",
+        "projectPath": "D:\\Maktab - 104 - CSharp\\HW12\\HW12\\backend_side\\HW12\\HW12\\HW12.csproj",
         "packagesPath": "C:\\Users\\peyvandi\\.nuget\\packages\\",
-        "outputPath": "D:\\Maktab - 104 - CSharp\\HW12\\backend_side\\HW12\\HW12\\obj\\",
+        "outputPath": "D:\\Maktab - 104 - CSharp\\HW12\\HW12\\backend_side\\HW12\\HW12\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\peyvandi\\AppData\\Roaming\\NuGet\\NuGet.Config",
