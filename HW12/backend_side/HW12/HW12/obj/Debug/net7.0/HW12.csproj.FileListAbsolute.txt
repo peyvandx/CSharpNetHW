@@ -1,0 +1,7 @@
+D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\HW12.csproj.AssemblyReference.cache
+D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\HW12.GeneratedMSBuildEditorConfig.editorconfig
+D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\HW12.AssemblyInfoInputs.cache
+D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\HW12.AssemblyInfo.cs
+D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\HW12.csproj.CoreCompileInputs.cache
+D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\HW12.MvcApplicationPartsAssemblyInfo.cs
+D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\HW12.MvcApplicationPartsAssemblyInfo.cache
