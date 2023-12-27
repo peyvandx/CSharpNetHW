@@ -9,8 +9,8 @@
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
-        public GenderType Gender { get; set; }
+        public string? Gender { get; set; }
     }
 
-    public enum GenderType { Male = 0, Female = 1 }
+    //public enum GenderType { Male = 0, Female = 1 }
 }

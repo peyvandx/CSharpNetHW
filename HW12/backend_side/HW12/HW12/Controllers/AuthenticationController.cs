@@ -10,10 +10,10 @@ namespace HW12.Controllers
     {
         [HttpPost]
         [Route("Signup")]
-        public IActionResult SignUp(SignupModel signupProperties)
+        public IActionResult SignUp([FromForm] SignupModel signupProperties)
         {
             signupProperties.ID = Guid.NewGuid();
-            return Ok();
+            return Ok(signupProperties);
         }
 
     }
