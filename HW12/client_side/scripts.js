@@ -64,5 +64,33 @@ function CallSignInAPI() {
 // End Of SignIn Page
 
 // Users Management Page
+window.addEventListener("load", function () {
+   const apiURL = "https://localhost:7202/api/CRUD/GetAllUsers";
 
+   fetch(apiURL)
+   .then((response) => response.json())
+   .then(function (data) {
+      console.log(data);
+      data.forEach((element) => {
+         let tr = document.createElement("tr");
+         let th = document.createElement("th");
+         let input = document.createElement("input");
+         input.className = "form-check-input";
+         input.type = "checkbox";
+         th.scope = "row";
+         th.appendChild(input);
+         let first_td = document.createElement("td");
+         first_td.innerText = element.firstName;
+         let second_td = document.createElement("td");
+         second_td.innerText = element.lastName;
+         let third_td = document.createElement("td");
+         third_td.innerText = element.email;
+         tr.appendChild(th);
+         tr.appendChild(first_td);
+         tr.appendChild(second_td);
+         tr.appendChild(third_td);
+         document.getElementById("table-body").appendChild(tr);
+      });
+   })
+});
 // End Of Users Management Page
