@@ -47,7 +47,8 @@ function CallSignInAPI() {
    .then(function (response) {
       if (response.ok) {
          alert("You're Loged In Successfully");
-         
+         // document.getElementById("go-to-user-management-page")
+         window.location.href = "./users_management.html";
       } else {
          alert("Incorrect email or password");
       }
@@ -61,3 +62,7 @@ function CallSignInAPI() {
    })
 }
 // End Of SignIn Page
+
+// Users Management Page
+
+// End Of Users Management Page
