@@ -32,3 +32,4 @@ D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\refin
 D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\HW12.pdb
 D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\HW12.genruntimeconfig.cache
 D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\obj\Debug\net7.0\ref\HW12.dll
+D:\Maktab - 104 - CSharp\HW12\HW12\backend_side\HW12\HW12\bin\Debug\net7.0\DataBase.json
