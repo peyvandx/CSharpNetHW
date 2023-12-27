@@ -6,9 +6,9 @@ namespace HW12.Utilities
 {
     public class Serialization
     {
-        public string SerializeToJson (SignupModel signupModel)
+        public string SerializeToJson (List<SignupModel> users)
         {
-            return JsonConvert.SerializeObject (signupModel);
+            return JsonConvert.SerializeObject (users);
         }
 
         public SignupModel DeserializeJson (string json)

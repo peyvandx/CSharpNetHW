@@ -12,7 +12,7 @@ namespace HW12.Utilities
         }
         public void SaveData (string json)
         {
-            File.AppendAllText (_path, json + Environment.NewLine);
+            File.WriteAllText (_path, json);
         }
 
         public List<SignupModel> ReadFile ()
