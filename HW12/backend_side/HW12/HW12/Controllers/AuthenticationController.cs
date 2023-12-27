@@ -35,8 +35,10 @@ namespace HW12.Controllers
 
             if (currentUser == null)
             {
-                throw new Exception(message: "Incorrect email or password");
-            } else
+                //throw new Exception(message: "Incorrect email or password");
+                return BadRequest();
+            }
+            else
             {
                 return Ok(currentUser);
             }
