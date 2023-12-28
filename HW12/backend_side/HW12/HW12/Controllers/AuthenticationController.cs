@@ -36,8 +36,12 @@ namespace HW12.Controllers
             if (currentUser == null)
             {
                 //throw new Exception(message: "Incorrect email or password");
+                return null;
+            } else if (currentUser.IsDisable == "true")
+            {
                 return BadRequest();
             }
+
             else
             {
                 return Ok(currentUser);

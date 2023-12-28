@@ -49,7 +49,10 @@ function CallSignInAPI() {
          alert("You're Loged In Successfully");
          // document.getElementById("go-to-user-management-page")
          window.location.href = "./users_management.html";
-      } else {
+      } else if (response.status == 400){
+         alert("Your access is disabled");
+      }
+      else {
          alert("Incorrect email or password");
       }
       return response.json();
@@ -70,7 +73,7 @@ window.addEventListener("load", function () {
    fetch(apiURL)
    .then((response) => response.json())
    .then(function (data) {
-      console.log(data);
+      // console.log(data);
       data.forEach((element) => {
          let tr = document.createElement("tr");
          let th = document.createElement("th");
@@ -85,12 +88,68 @@ window.addEventListener("load", function () {
          second_td.innerText = element.lastName;
          let third_td = document.createElement("td");
          third_td.innerText = element.email;
+         let fourth_td = document.createElement("td");
+         let first_button = document.createElement("button");
+         first_button.innerText = "disable user";
+         first_button.className = "btn btn-outline-warning btn-sm me-2";
+         first_button.setAttribute('class', 'disable-user');
+         first_button.addEventListener("click", function () {
+            const apiURL = "https://localhost:7202/api/Access/DisableUser";
+
+            fetch(apiURL, {
+               method: "POST",
+               body: element.email,
+            })
+            .then(function (response) {
+               if (response.ok) {
+                  alert("User Disabled Successfully");
+               } else {
+                  alert("Error with disabling operation");
+               }
+            })
+         });
+         // first_button.setAttribute('onclick', 'DisableUserButton()');
+         let second_button = document.createElement("button");
+         second_button.innerText = "enable user";
+         second_button.className = "btn btn-outline-success btn-sm me-2";
+         // second_button.setAttribute('class', 'enable-user');
+         second_button.addEventListener("click", function () {
+            const apiURL = "https://localhost:7202/api/Access/EnableUser";
+
+            fetch(apiURL, {
+               method: "POST",
+               body: element.email,
+            })
+            .then(function (response) {
+               if (response.ok){
+                  alert("User Enabled Successfully");
+               } else {
+                  alert("Error with enabling operation");
+               }
+            })
+         });
+         // second_button.setAttribute('onclick', 'EnableUserButton()');
+         fourth_td.appendChild(first_button);
+         fourth_td.appendChild(second_button);
          tr.appendChild(th);
          tr.appendChild(first_td);
          tr.appendChild(second_td);
          tr.appendChild(third_td);
+         tr.appendChild(fourth_td);
          document.getElementById("table-body").appendChild(tr);
       });
    })
 });
+
+function DisableUserButton () {
+   const apiURL = "https://localhost:7202/api/Access/DisableUser";
+   const userData = document.getElementById("disable-user");
+
+   fetch(apiURL)
+   .then()
+}
+
+function EnableUserButton () {
+   const apiURL = "https://localhost:7202/api/Access/EnableUser";
+}
 // End Of Users Management Page
