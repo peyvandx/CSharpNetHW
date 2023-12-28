@@ -19,6 +19,7 @@ namespace HW12.Controllers
         {
             TempDataBase.users = TempDataBase.LoadUsers("DataBase.json");
             signupProperties.ID = Guid.NewGuid();
+            signupProperties.IsDisable = "false";
             TempDataBase.users.Add(signupProperties);
             string jsonUsers = serialization.SerializeToJson(TempDataBase.users);
             dataAccess.SaveData(jsonUsers);

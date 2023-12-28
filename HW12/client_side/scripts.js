@@ -92,13 +92,14 @@ window.addEventListener("load", function () {
          let first_button = document.createElement("button");
          first_button.innerText = "disable user";
          first_button.className = "btn btn-outline-warning btn-sm me-2";
-         first_button.setAttribute('class', 'disable-user');
+         // first_button.setAttribute('class', 'disable-user');
          first_button.addEventListener("click", function () {
             const apiURL = "https://localhost:7202/api/Access/DisableUser";
 
             fetch(apiURL, {
+               headers: {'Content-Type' : 'application/json'},
                method: "POST",
-               body: element.email,
+               body: JSON.stringify(element.email),
             })
             .then(function (response) {
                if (response.ok) {
@@ -106,6 +107,9 @@ window.addEventListener("load", function () {
                } else {
                   alert("Error with disabling operation");
                }
+            })
+            .catch((error) => {
+               console.log(error);
             })
          });
          // first_button.setAttribute('onclick', 'DisableUserButton()');
@@ -117,8 +121,9 @@ window.addEventListener("load", function () {
             const apiURL = "https://localhost:7202/api/Access/EnableUser";
 
             fetch(apiURL, {
+               headers: {'Content-Type' : 'application/json'},
                method: "POST",
-               body: element.email,
+               body: JSON.stringify(element.email),
             })
             .then(function (response) {
                if (response.ok){
