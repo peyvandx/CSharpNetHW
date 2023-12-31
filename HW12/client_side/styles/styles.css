@@ -122,3 +122,15 @@
   -moz-osx-font-smoothing: grayscale;      
 }
 /* End Of SignIn Page */
+
+/* User Management Page */
+.edit-i-size {
+  font-size: 24px;
+  color: blueviolet;
+}
+
+.edit-i-size:hover {
+  color: #b3b3b3;
+  cursor: pointer;
+}
+/* End Of User Management Page */

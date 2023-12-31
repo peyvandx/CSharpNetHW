@@ -1,3 +1,5 @@
+let updatingUserID;
+
 // SignIn Page
 // $('.message a').click(function(){
 //    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
@@ -58,6 +60,7 @@ function CallSignInAPI() {
       return response.json();
    })
    .then((data) => {
+      // alert("Weclcome: " + data.firstName);
       console.log("Success", data);
    })
    .catch((error) => {
@@ -67,6 +70,7 @@ function CallSignInAPI() {
 // End Of SignIn Page
 
 // Users Management Page
+
 window.addEventListener("load", function () {
    const apiURL = "https://localhost:7202/api/CRUD/GetAllUsers";
 
@@ -134,8 +138,20 @@ window.addEventListener("load", function () {
             })
          });
          // second_button.setAttribute('onclick', 'EnableUserButton()');
+         let editIcon = document.createElement("i");
+         editIcon.className = "fa fa-pencil-square-o edit-i-size";
+         editIcon.ariaHidden = "true";
+         editIcon.addEventListener("click", function () {
+            updatingUserID = element.id;
+            // using "local storage" to prevent 'updatinUserID value' from removing when the page is changing.
+            localStorage.setItem('updatingUserIDKey',  updatingUserID);
+            // alert(updatingUserID);
+            window.location.href = "./update_user.html";
+            // alert(updatingUserID);
+         })
          fourth_td.appendChild(first_button);
          fourth_td.appendChild(second_button);
+         fourth_td.appendChild(editIcon);
          tr.appendChild(th);
          tr.appendChild(first_td);
          tr.appendChild(second_td);
@@ -158,3 +174,31 @@ function EnableUserButton () {
    const apiURL = "https://localhost:7202/api/Access/EnableUser";
 }
 // End Of Users Management Page
+
+// Update User
+
+function UpdateUserButton () {
+   //retrieving the value of 'updatingUserID' from local storage
+   updatingUserID = localStorage.getItem('updatingUserIDKey');
+   // console.log(updatingUserID);
+   const apiURL = "https://localhost:7202/api/CRUD/UpdateUser";
+   let selectedUserID = document.getElementById("user-id");
+   // alert(updatingUserID);
+   selectedUserID.value = updatingUserID;
+   const formData = new FormData(document.getElementById("update-form"));
+
+   fetch(apiURL, {
+      method: "POST",
+      body: formData,
+   })
+   .then(function (response) {
+      if (response.ok) {
+         alert("User Updated Successfully");
+         window.location.href = "./sigin_page.html";
+      } else {
+         alert("Error with updating user");
+      }
+   })
+}
+
+// End Of Update User

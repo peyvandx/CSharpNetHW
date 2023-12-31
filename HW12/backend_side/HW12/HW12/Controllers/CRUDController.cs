@@ -1,6 +1,8 @@
-﻿using HW12.Services;
+﻿using HW12.Models;
+using HW12.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Metadata.Ecma335;
 
 namespace HW12.Controllers
 {
@@ -15,6 +17,14 @@ namespace HW12.Controllers
         public IActionResult GetAllUsers()
         {
             return Ok(crud.ReadAllUsers());
+        }
+
+        [HttpPost]
+        [Route("UpdateUser")]
+        public IActionResult UpdateUser([FromForm] SignupModel model)
+        {
+            if (crud.UpdateUser(model)) return Ok();
+            else return BadRequest();
         }
     }
 }

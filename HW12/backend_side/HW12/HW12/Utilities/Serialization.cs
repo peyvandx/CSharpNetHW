@@ -11,9 +11,9 @@ namespace HW12.Utilities
             return JsonConvert.SerializeObject (users);
         }
 
-        public SignupModel DeserializeJson (string json)
-        {
-            return JsonConvert.DeserializeObject<SignupModel> (json);
-        }
+        //public SignupModel DeserializeJson (string json)
+        //{
+        //    return JsonConvert.DeserializeObject<SignupModel> (json);
+        //}
     }
 }
