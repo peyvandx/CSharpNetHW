@@ -26,5 +26,13 @@ namespace HW12.Controllers
             if (crud.UpdateUser(model)) return Ok();
             else return BadRequest();
         }
+
+        [HttpDelete]
+        [Route("DeleteUser")]
+        public IActionResult DeleteUser([FromBody] string id)
+        {
+            if (crud.DeleteUser(id)) return Ok();
+            return BadRequest();
+        }
     }
 }

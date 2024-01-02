@@ -138,6 +138,26 @@ window.addEventListener("load", function () {
             })
          });
          // second_button.setAttribute('onclick', 'EnableUserButton()');
+         let third_button = document.createElement("button");
+         third_button.innerText = "delete user";
+         third_button.className = "btn btn-outline-danger btn-sm me-2";
+         third_button.addEventListener("click", function () {
+            const apiURL = "https://localhost:7202/api/CRUD/DeleteUser";
+
+            fetch(apiURL, {
+               headers: {'Content-Type' : 'application/json'},
+               method: "DELETE",
+               body: JSON.stringify(element.id),
+            })
+            .then(function (response) {
+               if (response.ok) {
+                  alert("User Deleted Successfully");
+                  window.location.href = "./users_management.html";
+               } else {
+                  alert("Error with deleting user");
+               }
+            })
+         });
          let editIcon = document.createElement("i");
          editIcon.className = "fa fa-pencil-square-o edit-i-size";
          editIcon.ariaHidden = "true";
@@ -151,6 +171,7 @@ window.addEventListener("load", function () {
          })
          fourth_td.appendChild(first_button);
          fourth_td.appendChild(second_button);
+         fourth_td.appendChild(third_button);
          fourth_td.appendChild(editIcon);
          tr.appendChild(th);
          tr.appendChild(first_td);

@@ -35,5 +35,18 @@ namespace HW12.Services
 
             return false;
         }
+
+        public bool DeleteUser(string id)
+        {
+            var selectedUser = TempDataBase.users.FirstOrDefault(u => u.ID.ToString() == id);
+            if (selectedUser != null)
+            {
+                TempDataBase.users.Remove(selectedUser);
+                var jsonUsers = serialization.SerializeToJson(TempDataBase.users);
+                dataAccess.SaveData(jsonUsers);
+                return true;
+            }
+            return false;
+        }
     }
 }
