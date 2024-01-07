@@ -1,0 +1,72 @@
+﻿<h3>
+    خوش آمدید
+</h3>
+
+<div class="d-flex align-items-center justify-content-center">
+    <a asp-controller="Teachers" asp-action="Index">
+        <button class="btn btn-sm me-2 btn-outline-success" onclick=""
+                type="button">
+            ثبت نام
+        </button>
+    </a>
+    <a asp-controller="Students" asp-action="Index">
+        <button class="btn btn-sm me-2 btn-outline-primary" onclick=""
+                type="button">
+            ورود
+        </button>
+    </a>
+</div>
+
+<div class="container-fluid signup-container w-50 d-flex align-items-center justify-content-center">
+    <form class="w-100 d-flex flex-column" id="signup-form">
+        <div class="mb-3">
+            <label for="FirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" name="FirstName">
+        </div>
+        <div class="mb-3">
+            <label for="LastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" name="LastName">
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="Email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                   title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                   class="form-control" name="Password" id="Password">
+        </div>
+        <div class="mb-3">
+            <label for="PhoneNumber" class="form-label">Phone number</label>
+            <input type="text" class="form-control" name="PhoneNumber">
+        </div>
+        <div class="mb-3">
+            <label for="Address" class="form-label">Address</label>
+            <input type="text" class="form-control" name="Address">
+        </div>
+        <div class="mb-3 form-check">
+            <label for="">Gender</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Gender" value="male" id="Gender">
+                <label class="form-check-label" for="Gender">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Gender" value="female" id="Gender" checked>
+                <label class="form-check-label" for="Gender">
+                    Female
+                </label>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="CallSignUpAPI()">Submit</button>
+    </form>
+</div>
+
+
+
+<script src="">
+
+</script>

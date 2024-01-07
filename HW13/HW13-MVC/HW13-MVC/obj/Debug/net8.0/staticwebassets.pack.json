@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\student.js",
+      "PackagePath": "staticwebassets\\js\\student.js"
+    },
+    {
+      "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\teacher.js",
+      "PackagePath": "staticwebassets\\js\\teacher.js"
+    },
+    {
       "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
