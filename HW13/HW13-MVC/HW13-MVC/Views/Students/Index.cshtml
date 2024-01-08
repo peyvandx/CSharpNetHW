@@ -1,72 +1,95 @@
-﻿<h3>
+﻿@model StudentDTO
+
+<h3>
     خوش آمدید
 </h3>
 
 <div class="d-flex align-items-center justify-content-center">
-    <a asp-controller="Teachers" asp-action="Index">
-        <button class="btn btn-sm me-2 btn-outline-success" onclick=""
-                type="button">
-            ثبت نام
-        </button>
-    </a>
-    <a asp-controller="Students" asp-action="Index">
-        <button class="btn btn-sm me-2 btn-outline-primary" onclick=""
-                type="button">
-            ورود
-        </button>
-    </a>
+    <button class="btn btn-sm me-2 btn-outline-success" onclick="showSignupForm()"
+            type="button">
+        ثبت نام
+    </button>
+    <button class="btn btn-sm me-2 btn-outline-primary" onclick="showSigninForm()"
+            type="button">
+        ورود
+    </button>
 </div>
 
-<div class="container-fluid signup-container w-50 d-flex align-items-center justify-content-center">
-    <form class="w-100 d-flex flex-column" id="signup-form">
+<div class="container-fluid signup-container w-50 d-flex align-items-center justify-content-center d-none" id="signup-form-container">
+    <form class="w-100 d-flex flex-column" asp-controller="Students" asp-action="Signup">
+        <hr />
         <div class="mb-3">
-            <label for="FirstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" name="FirstName">
+            <label for="FirstName" class="form-label">نام</label>
+            <input type="text" class="form-control" asp-for="FirstName">
         </div>
         <div class="mb-3">
-            <label for="LastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" name="LastName">
+            <label for="LastName" class="form-label">نام خانوادگی</label>
+            <input type="text" class="form-control" asp-for="LastName">
         </div>
         <div class="mb-3">
-            <label for="Email" class="form-label">Email address</label>
-            <input type="email" class="form-control" name="Email" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label for="Email" class="form-label">آدرس ایمیل</label>
+            <input type="email" class="form-control" asp-for="Email" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="Password" class="form-label">Password</label>
+            <label for="Password" class="form-label">رمز عبور</label>
             <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                   class="form-control" name="Password" id="Password">
+                   class="form-control" asp-for="Password" id="Password">
         </div>
         <div class="mb-3">
-            <label for="PhoneNumber" class="form-label">Phone number</label>
-            <input type="text" class="form-control" name="PhoneNumber">
+            <label for="Password" class="form-label">تکرار رمز عبور</label>
+            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                   title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                   class="form-control" asp-for="ConfirmPassword" id="Password">
         </div>
         <div class="mb-3">
-            <label for="Address" class="form-label">Address</label>
-            <input type="text" class="form-control" name="Address">
+            <label for="LastName" class="form-label">کد ملی</label>
+            <input type="text" class="form-control" asp-for="NationalCode">
+        </div>
+        <div class="mb-3">
+            <label for="LastName" class="form-label">سن</label>
+            <input type="text" class="form-control" asp-for="Age">
+        </div>
+        <div class="mb-3">
+            <label for="PhoneNumber" class="form-label">شماره موبایل</label>
+            <input type="text" class="form-control" asp-for="PhoneNumber">
+        </div>
+        <div class="mb-3">
+            <label for="Address" class="form-label">آدرس</label>
+            <input type="text" class="form-control" asp-for="Address">
         </div>
         <div class="mb-3 form-check">
-            <label for="">Gender</label>
+            <label for="">جنسیت</label>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="Gender" value="male" id="Gender">
+                <input class="form-check-input" type="radio" asp-for="Gender" value="male" id="Gender">
                 <label class="form-check-label" for="Gender">
-                    Male
+                    آقا
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="Gender" value="female" id="Gender" checked>
+                <input class="form-check-input" type="radio" asp-for="Gender" value="female" id="Gender" checked>
                 <label class="form-check-label" for="Gender">
-                    Female
+                    خانم
                 </label>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" onclick="CallSignUpAPI()">Submit</button>
+        <button type="submit" class="btn btn-success">ثبت نام</button>
     </form>
 </div>
 
+<div class="container-fluid signup-container w-50 d-flex align-items-center justify-content-center" id="signin-form-container">
+    <form class="w-100 d-flex flex-column" asp-controller="Students" asp-action="Singin" method="post">
+        <hr />
+        <div class="mb-3">
+            <label for="Email" class="form-label">آدرس ایمیل</label>
+            <input type="text" class="form-control" placeholder="ایمیل" asp-for="Email" />
+        </div>
+        <div class="mb-3">
+            <label for="Password" class="form-label">رمز عبور</label>
+            <input type="password" class="form-control" placeholder="رمز عبور" asp-for="Password" />
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">ورود</button>
+    </form>
+</div>
 
-
-<script src="">
-
-</script>
+<script src="~/js/student.js"></script>

@@ -1,8 +1,19 @@
-﻿function createSignupForm() {
-    let hr = document.createElement("hr");
-    let signUpForm = document.getElementById("signup-form");
-    signUpForm.appendChild(hr);
+﻿function showSignupForm() {
+    let signinFormIsHidden = document.getElementById("signin-form-container").classList.contains("d-none");
+    if (signinFormIsHidden) {
+        document.getElementById("signup-form-container").classList.remove("d-none");
+    } else {
+        document.getElementById("signin-form-container").classList.toggle("d-none");
+        document.getElementById("signup-form-container").classList.remove("d-none");
+    }
+}
 
-    let fNameDiv = document.createElement("div").className = "mb-3";
-    let fNameLabel = document.createElement("label").
+function showSigninForm() {
+    let signupFormIsHidden = document.getElementById("signup-form-container").classList.contains("d-none");
+    if (signupFormIsHidden) {
+        document.getElementById("signin-form-container").classList.remove("d-none");
+    } else {
+        document.getElementById("signup-form-container").classList.toggle("d-none");
+        document.getElementById("signin-form-container").classList.remove("d-none");
+    }
 }
