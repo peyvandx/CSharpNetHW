@@ -8,13 +8,15 @@ namespace HW13_MVC.Utilities
         private readonly string _teachersPath;
         private readonly string _studentsPath;
         private readonly string _coursesPath;
+        private readonly string _idCounterPath;
         private Serialization serialization = new Serialization();
         private Deserialization deserialization = new Deserialization();
-        public DataAccess(string teachersPath, string studentsPath, string coursesPath)
+        public DataAccess(string teachersPath, string studentsPath, string coursesPath, string idCounterPath)
         {
             this._teachersPath = teachersPath;
             this._studentsPath = studentsPath;
             this._coursesPath = coursesPath;
+            this._idCounterPath = idCounterPath;
         }
         public void SaveTeachers()
         {
@@ -33,6 +35,12 @@ namespace HW13_MVC.Utilities
             File.WriteAllText(_coursesPath, coursesJson);
         }
 
+        public void SaveIdCounter()
+        {
+            var idCounterJson = serialization.SerializeIdCounterToJson(TempDB.IdCounter);
+            File.WriteAllText(_idCounterPath, idCounterJson);
+        }
+
         public List<Teacher> ReadTeachers()
         {
             var fileData = File.ReadAllText(_teachersPath);
@@ -49,6 +57,12 @@ namespace HW13_MVC.Utilities
         {
             var fileData = File.ReadAllText(_coursesPath);
             return deserialization.DeserializeCourses(fileData);
+        }
+
+        public int ReadIdCounter()
+        {
+            var fileData = File.ReadAllText(_idCounterPath);
+            return deserialization.DeserializeIdCounter(fileData);
         }
     }
 }

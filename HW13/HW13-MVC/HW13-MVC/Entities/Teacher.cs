@@ -14,6 +14,6 @@
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
 
-        public List<Course> Courses { get; set; }
+        public List<Course>? Courses { get; set; }
     }
 }

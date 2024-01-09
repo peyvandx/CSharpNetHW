@@ -1,5 +1,6 @@
 ﻿using HW13_MVC.Entities;
 using HW13_MVC.Models;
+using HW13_MVC.Services;
 using HW13_MVC.TempDataBase;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace HW13_MVC.Controllers
 {
     public class StudentsController : Controller
     {
+        private StudentCRUD studentCRUD = new StudentCRUD();
         public IActionResult Index()
         {
             //ViewBag.SigninDTO = new SigninDTO();
@@ -16,21 +18,8 @@ namespace HW13_MVC.Controllers
         [HttpPost]
         public IActionResult Signup([FromForm] StudentDTO studentDTO)
         {
-            Student newStudent = new Student();
-            newStudent.ID = TempDB.IdCounter++;
-            newStudent.FirstName = studentDTO.FirstName;
-            newStudent.LastName = studentDTO.LastName;
-            newStudent.Email = studentDTO.Email;
-            newStudent.Password = studentDTO.Password;
-            newStudent.Address = studentDTO.Address;
-            newStudent.Age = studentDTO.Age;
-            newStudent.NationalCode = studentDTO.NationalCode;
-            newStudent.PhoneNumber = studentDTO.PhoneNumber;
-            newStudent.Gender = studentDTO.Gender;
-
-            TempDB.Students.Add(newStudent);
-
-            return View();
+            studentCRUD.Create(studentDTO);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -40,13 +29,14 @@ namespace HW13_MVC.Controllers
             if (signedInStudent == null)
             {
                 //failed to signin, show error
+                return View("Error With Login");
             }
             else
             {
                 //success
                 TempDB.OnlineStudent = signedInStudent;
+                return RedirectToAction("Home");
             }
-            return RedirectToAction("Index");
         }
 
         public IActionResult Home()

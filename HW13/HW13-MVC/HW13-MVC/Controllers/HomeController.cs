@@ -1,4 +1,5 @@
 using HW13_MVC.Models;
+using HW13_MVC.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,6 +8,7 @@ namespace HW13_MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private LoadDBInRam loadDBInRam = new LoadDBInRam();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -15,6 +17,7 @@ namespace HW13_MVC.Controllers
 
         public IActionResult Index()
         {
+            loadDBInRam.LoadDB();
             return View();
         }
 

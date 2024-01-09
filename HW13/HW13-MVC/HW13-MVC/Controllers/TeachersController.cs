@@ -1,5 +1,6 @@
 ﻿using HW13_MVC.Entities;
 using HW13_MVC.Models;
+using HW13_MVC.Services;
 using HW13_MVC.TempDataBase;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata.Ecma335;
@@ -8,6 +9,7 @@ namespace HW13_MVC.Controllers
 {
     public class TeachersController : Controller
     {
+        private TeacherCRUD teacherCRUD = new TeacherCRUD();
         public IActionResult Index()
         {
             return View();
@@ -16,22 +18,9 @@ namespace HW13_MVC.Controllers
         [HttpPost]
         public IActionResult Signup([FromForm] TeacherDTO teacherDTO)
         {
-            Teacher newTeacher = new Teacher();
-            newTeacher.ID = TempDB.IdCounter++;
-            newTeacher.FirstName = teacherDTO.FirstName;
-            newTeacher.LastName = teacherDTO.LastName;
-            newTeacher.Email = teacherDTO.Email;
-            newTeacher.Password = teacherDTO.Password;
-            newTeacher.Address = teacherDTO.Address;
-            newTeacher.Age = teacherDTO.Age;
-            newTeacher.Skill = teacherDTO.Skill;
-            newTeacher.NationalCode = teacherDTO.NationalCode;
-            newTeacher.PhoneNumber = teacherDTO.PhoneNumber;
-            newTeacher.Gender = teacherDTO.Gender;
-
-            TempDB.Teachers.Add(newTeacher);
-
-            return View();
+            teacherCRUD.Create(teacherDTO);
+            //show a message
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -41,12 +30,14 @@ namespace HW13_MVC.Controllers
             if (signedInTeacher == null)
             {
                 //failed to signin, show error
-            } else
+                return View("Error With Login");
+            }
+            else
             {
                 //success
                 TempDB.OnlineTeacher = signedInTeacher;
+                return RedirectToAction("Home");
             }
-            return RedirectToAction("Index");
         }
 
         public IActionResult Home()

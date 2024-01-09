@@ -19,5 +19,10 @@ namespace HW13_MVC.Utilities
         {
             return JsonConvert.DeserializeObject<List<Course>>(courses);
         }
+
+        public int DeserializeIdCounter(string idCounter)
+        {
+            return JsonConvert.DeserializeObject<int>(idCounter);
+        }
     }
 }
