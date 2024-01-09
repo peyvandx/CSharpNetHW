@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nGi2EzU9LGzOpruSwOeEdGSzbO5Yna4NCejHJbOtbZoLdPyxZJBKk3kDKB0IA4BY7Wt2NpJ0L00N56M1oL3uKQ==",
+  "dgSpecHash": "CKsBa23IMmu1JrXW7mGLFDbND7fFWu6YK0vCSnNgf2ey8kOmEOTRl2aeq4DNLesc7AVn0XBsuJL8bbDENFtk4g==",
   "success": true,
   "projectFilePath": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\HW13-MVC.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\peyvandi\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
