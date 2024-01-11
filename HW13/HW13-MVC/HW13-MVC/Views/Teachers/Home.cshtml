@@ -1,6 +1,140 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using HW13_MVC.Entities
+@model CourseDTO;
 @{
     Layout = "_TeacherLayout";
 }
+<nav>
+    <div class="nav nav-fill nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active text-success" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true" onclick="">دوره های آموزشی من</button>
+        <button class="nav-link text-success" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" onclick="">ایجاد دوره آموزشی جدید</button>
+        <button class="nav-link text-success" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false" onclick="">پروفایل</button>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active mt-5" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" @*onload="myCourses(Model)"*@>
+        @if (ViewBag.OnlineTeacher.Courses.Count == 0)
+        {
+            <div class="mx-auto">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="centered-div">
+                                <p class="text-warning">
+                                    شما هیچ دوره آموزشی ایجاد نکرده اید.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="container text-center">
+                <div class="row row-cols-3">
+                    @foreach (var course in ViewBag.OnlineTeacher.Courses)
+                    {
+                        <div class="col">
+                            <div class="card mb-5" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@course.Title</h5>
+                                    <p class="card-text">@course.Description</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">ظرفیت: @course.Capacity</li>
+                                    <li class="list-group-item">مدت زمان: @course.Duration</li>
+                                    <li class="list-group-item">تعداد دانشجوها: @course.EnrolledStudents</li>
+                                </ul>
+                                <a class="btn btn-outline-success">نمره دهی به دانشجوها</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="container-fluid w-50 d-flex align-items-center justify-content-center">
+            <form asp-controller="Teachers" asp-action="CreateCourse" method="post">
+                <div class="mb-3 mt-5">
+                    <label for="course-title" class="form-label">عنوان دوره</label>
+                    <input type="text" class="form-control" id="course-title" asp-for="Title">
+                </div>
+                <div class="mb-3">
+                    <label for="course-duration" class="form-label">مدت زمان دوره</label>
+                    <input type="text" class="form-control" id="course-duration" asp-for="Duration">
+                </div>
+                <div class="mb-3">
+                    <label for="course-capacity" class="form-label">ظرفیت دوره</label>
+                    <input type="number" class="form-control" id="course-capacity" asp-for="Capacity">
+                </div>
+                <div class="mb-3">
+                    <label for="course-capacity" class="form-label">توضیحات دوره</label>
+                    <textarea class="form-control" asp-for="Description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-outline-success">ایجاد کردن</button>
+            </form>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <div class="container-fluid w-50 d-flex align-items-center justify-content-center">
+            <form>
+                <fieldset disabled>
+                    <div class="mb-3">
+                        <label for="FirstName" class="form-label mt-5">نام</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="LastName" class="form-label">نام خانوادگی</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Email" class="form-label">آدرس ایمیل</label>
+                        <input type="email" class="form-control" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">رمز عبور</label>
+                        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                               class="form-control" id="Password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="LastName" class="form-label">رشته یا مهارت</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="LastName" class="form-label">کد ملی</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="LastName" class="form-label">سن</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="PhoneNumber" class="form-label">شماره موبایل</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Address" class="form-label">آدرس</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <label for="">جنسیت</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="male" id="Gender">
+                            <label class="form-check-label" for="Gender">
+                                آقا
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="female" id="Gender" checked>
+                            <label class="form-check-label" for="Gender">
+                                خانم
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

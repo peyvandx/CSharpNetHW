@@ -2,6 +2,7 @@
 using HW13_MVC.Models;
 using HW13_MVC.Services;
 using HW13_MVC.TempDataBase;
+using HW13_MVC.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HW13_MVC.Controllers
@@ -9,6 +10,8 @@ namespace HW13_MVC.Controllers
     public class StudentsController : Controller
     {
         private StudentCRUD studentCRUD = new StudentCRUD();
+        private StudentCourseUtilities studentCourseUtilities = new StudentCourseUtilities();
+        private LoadDBInRam loadDBInRam = new LoadDBInRam();
         public IActionResult Index()
         {
             //ViewBag.SigninDTO = new SigninDTO();
@@ -35,13 +38,24 @@ namespace HW13_MVC.Controllers
             {
                 //success
                 TempDB.OnlineStudent = signedInStudent;
+                //ViewBag.OnlineStudentFName = TempDB.OnlineStudent.FirstName;
+                //ViewBag.OnlineStudentLName = TempDB.OnlineStudent.LastName;
                 return RedirectToAction("Home");
             }
         }
 
         public IActionResult Home()
         {
+            loadDBInRam.LoadDB();
+            ViewBag.OnlineStudent = TempDB.OnlineStudent;
+            ViewBag.Courses = TempDB.Courses;
             return View();
+        }
+
+        public IActionResult EnrollCourse(EnrollCourseDTO enrollCourseDTO)
+        {
+            studentCourseUtilities.EnrollCourse(enrollCourseDTO);
+            return RedirectToAction("Home");
         }
     }
 }

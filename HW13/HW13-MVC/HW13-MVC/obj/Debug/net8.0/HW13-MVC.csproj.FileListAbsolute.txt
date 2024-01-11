@@ -35,3 +35,4 @@ D:\Maktab - 104 - CSharp\HW12\HW13\HW13-MVC\HW13-MVC\obj\Debug\net8.0\HW13-MVC.c
 D:\Maktab - 104 - CSharp\HW12\HW13\HW13-MVC\HW13-MVC\bin\Debug\net8.0\IdCounter.json
 D:\Maktab - 104 - CSharp\HW12\HW13\HW13-MVC\HW13-MVC\bin\Debug\net8.0\Teachers.json
 D:\Maktab - 104 - CSharp\HW12\HW13\HW13-MVC\HW13-MVC\bin\Debug\net8.0\Students.json
+D:\Maktab - 104 - CSharp\HW12\HW13\HW13-MVC\HW13-MVC\bin\Debug\net8.0\Courses.json

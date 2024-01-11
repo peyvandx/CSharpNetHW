@@ -10,7 +10,7 @@ namespace HW13_MVC.Utilities
         {
             TempDB.Teachers = dataAccess.ReadTeachers();
             TempDB.Students = dataAccess.ReadStudents();
-            //TempDB.Courses = dataAccess.ReadCourses();
+            TempDB.Courses = dataAccess.ReadCourses();
             TempDB.IdCounter = dataAccess.ReadIdCounter();
         }
     }

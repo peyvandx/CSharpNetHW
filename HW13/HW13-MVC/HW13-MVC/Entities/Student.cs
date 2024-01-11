@@ -13,6 +13,6 @@
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
 
-        public List<Course>? SignedUpCourses { get; set; }
+        public List<Course>? SignedUpCourses { get; set; } = new List<Course>();
     }
 }

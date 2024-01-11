@@ -13,16 +13,24 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\Students\\studentHome.js",
+      "PackagePath": "staticwebassets\\js\\Students\\studentHome.js"
+    },
+    {
+      "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\Students\\studentIndex.js",
+      "PackagePath": "staticwebassets\\js\\Students\\studentIndex.js"
+    },
+    {
+      "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\Teachers\\teacherHome.js",
+      "PackagePath": "staticwebassets\\js\\Teachers\\teacherHome.js"
+    },
+    {
+      "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\Teachers\\teacherIndex.js",
+      "PackagePath": "staticwebassets\\js\\Teachers\\teacherIndex.js"
+    },
+    {
       "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
-    },
-    {
-      "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\student.js",
-      "PackagePath": "staticwebassets\\js\\student.js"
-    },
-    {
-      "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\teacher.js",
-      "PackagePath": "staticwebassets\\js\\teacher.js"
     },
     {
       "Id": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\lib\\bootstrap\\LICENSE",

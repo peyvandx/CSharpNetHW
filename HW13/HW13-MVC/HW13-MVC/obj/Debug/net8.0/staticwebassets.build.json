@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JoYQkUbuQayWCqPJscD7FTztFSsmDGrFKCUmVHMYLu4=",
+  "Hash": "FjZq6XUb6yxlE6gGGEyanVccp+kY4PDlahRGK7B+We8=",
   "Source": "HW13-MVC",
   "BasePath": "_content/HW13-MVC",
   "Mode": "Default",
@@ -112,12 +112,12 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\student.js",
+      "Identity": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\Students\\studentHome.js",
       "SourceId": "HW13-MVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\",
       "BasePath": "_content/HW13-MVC",
-      "RelativePath": "js/student.js",
+      "RelativePath": "js/Students/studentHome.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -128,15 +128,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\student.js"
+      "OriginalItemSpec": "wwwroot\\js\\Students\\studentHome.js"
     },
     {
-      "Identity": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\teacher.js",
+      "Identity": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\Students\\studentIndex.js",
       "SourceId": "HW13-MVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\",
       "BasePath": "_content/HW13-MVC",
-      "RelativePath": "js/teacher.js",
+      "RelativePath": "js/Students/studentIndex.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,7 +147,45 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\teacher.js"
+      "OriginalItemSpec": "wwwroot\\js\\Students\\studentIndex.js"
+    },
+    {
+      "Identity": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\Teachers\\teacherHome.js",
+      "SourceId": "HW13-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\",
+      "BasePath": "_content/HW13-MVC",
+      "RelativePath": "js/Teachers/teacherHome.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Teachers\\teacherHome.js"
+    },
+    {
+      "Identity": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\js\\Teachers\\teacherIndex.js",
+      "SourceId": "HW13-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\",
+      "BasePath": "_content/HW13-MVC",
+      "RelativePath": "js/Teachers/teacherIndex.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Teachers\\teacherIndex.js"
     },
     {
       "Identity": "D:\\Maktab - 104 - CSharp\\HW12\\HW13\\HW13-MVC\\HW13-MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

@@ -1,6 +1,182 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model EnrollCourseDTO
 @{
     Layout = "_StudentLayout";
 }
+<ul class="nav nav-fill nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">دوره های آموزشی من</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">دوره های آموزشی</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">پروفایل</button>
+    </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        @if (ViewBag.OnlineStudent.SignedUpCourses.Count == 0)
+        {
+            <div class="mx-auto">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="centered-div">
+                                <p class="text-secondary">
+                                    شما در هیچ دوره آموزشی ثبت نام نکرده اید.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="container text-center">
+                <div class="row row-cols-3">
+                    @foreach (var course in ViewBag.OnlineStudent.SignedUpCourses)
+                    {
+                        <div class="col">
+                            <div class="card mb-5" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@course.Title</h5>
+                                    <p class="card-text">@course.Description</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">ظرفیت: @course.Capacity</li>
+                                    <li class="list-group-item">مدت زمان: @course.Duration</li>
+                                    <li class="list-group-item">تعداد دانشجوها: @course.EnrolledStudents</li>
+                                </ul>
+                                <a class="btn btn-outline-info">وارد شدن</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        @if (ViewBag.Courses.Count == 0)
+        {
+            <div class="mx-auto">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="centered-div">
+                                <p class="text-danger">
+                                    در حال حاضر هیچ دوره ای در دسترس نمی باشد.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="container text-center">
+                <div class="row row-cols-3">
+                    @foreach (var course in ViewBag.Courses)
+                    {
+                        <form asp-controller="Students" asp-action="EnrollCourse" method="post">
+                            <div class="col">
+                                <div class="card mb-5" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@course.Title</h5>
+                                        <p class="card-text">@course.Description</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">ظرفیت: @course.Capacity</li>
+                                        <li class="list-group-item">مدت زمان: @course.Duration</li>
+                                        <li class="list-group-item">تعداد دانشجوها: @course.EnrolledStudents</li>
+                                        <input hidden value="@course.ID" asp-for="CourseID" />
+                                    </ul>
+                                    @{
+                                        bool hasThisCourse = false;
+                                        foreach (var c in ViewBag.OnlineStudent.SignedUpCourses)
+                                        {
+                                            if (c.ID == course.ID) hasThisCourse = true;
+                                        }
+
+                                        if (course.Capacity == course.EnrolledStudents)
+                                        {
+                                            <button type="submit" class="btn btn-danger disabled">ثبت نام</button>
+                                        }
+                                        else if (hasThisCourse)
+                                        {
+                                            <button type="submit" class="btn btn-warning disabled">ثبت نام</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" class="btn btn-outline-info">ثبت نام</button>
+                                        }
+                                    }
+                                    
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class="container-fluid signup-container w-50 d-flex align-items-center justify-content-center">
+            <form>
+                <fieldset disabled>
+                    <div class="mb-3">
+                        <label for="FirstName" class="form-label mt-5">نام</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="LastName" class="form-label">نام خانوادگی</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Email" class="form-label">آدرس ایمیل</label>
+                        <input type="email" class="form-control" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">رمز عبور</label>
+                        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                               class="form-control" id="Password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="LastName" class="form-label">کد ملی</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="LastName" class="form-label">سن</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="PhoneNumber" class="form-label">شماره موبایل</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Address" class="form-label">آدرس</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <label for="">جنسیت</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="male" id="Gender">
+                            <label class="form-check-label" for="Gender">
+                                آقا
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="female" id="Gender" checked>
+                            <label class="form-check-label" for="Gender">
+                                خانم
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
