@@ -34,20 +34,23 @@
                 <div class="row row-cols-3">
                     @foreach (var course in ViewBag.OnlineTeacher.Courses)
                     {
-                        <div class="col">
-                            <div class="card mb-5" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">@course.Title</h5>
-                                    <p class="card-text">@course.Description</p>
+                        <form asp-controller="Teachers" asp-action="ShowEnrolledStudents">
+                            <div class="col">
+                                <div class="card mb-5" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@course.Title</h5>
+                                        <p class="card-text">@course.Description</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">ظرفیت: @course.Capacity</li>
+                                        <li class="list-group-item">مدت زمان: @course.Duration</li>
+                                        <li class="list-group-item">تعداد دانشجوها: @course.EnrolledStudents</li>
+                                        <input hidden value="@course.ID" name="courseId"/>
+                                    </ul>
+                                    <button type="submit" class="btn btn-outline-success">نمره دهی به دانشجوها</button>
                                 </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">ظرفیت: @course.Capacity</li>
-                                    <li class="list-group-item">مدت زمان: @course.Duration</li>
-                                    <li class="list-group-item">تعداد دانشجوها: @course.EnrolledStudents</li>
-                                </ul>
-                                <a class="btn btn-outline-success">نمره دهی به دانشجوها</a>
                             </div>
-                        </div>
+                        </form>
                     }
                 </div>
             </div>

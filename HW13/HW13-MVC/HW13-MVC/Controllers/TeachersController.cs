@@ -11,6 +11,7 @@ namespace HW13_MVC.Controllers
     {
         private TeacherCRUD teacherCRUD = new TeacherCRUD();
         private CourseCRUD courseCRUD = new CourseCRUD();
+        private TeacherCourseUtilities teacherCourseUtilities = new TeacherCourseUtilities();
         public IActionResult Index()
         {
             return View();
@@ -54,5 +55,20 @@ namespace HW13_MVC.Controllers
             courseCRUD.Create(courseDTO);
             return RedirectToAction("Home");
         }
+
+        [HttpPost]
+        public IActionResult ShowEnrolledStudents([FromForm] int courseId)
+        {
+            var enrolledStudents = teacherCourseUtilities.ShowEnrolledStudents(courseId);
+            ViewBag.EnrolledStudents = enrolledStudents;
+            ViewBag.CourseId = courseId;
+            return View();
+        }
+
+        //[HttpPost]
+        //public IActionResult GradingStudents([FromForm]List<GradingStudentsDTO> gradingStudentsDTO)
+        //{
+
+        //}
     }
 }
