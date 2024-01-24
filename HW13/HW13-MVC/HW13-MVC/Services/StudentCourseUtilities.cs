@@ -9,10 +9,13 @@ namespace HW13_MVC.Services
         private DataAccess dataAccess = new DataAccess("Teachers.json", "Students.json", "Courses.json", "IdCounter.json");
         public void EnrollCourse(EnrollCourseDTO enrollCourseDTO)
         {
-            var EnrolledCourse = TempDB.Courses.FirstOrDefault(c => c.ID == enrollCourseDTO.CourseID);
-            TempDB.OnlineStudent.SignedUpCourses.Add(EnrolledCourse);
-            EnrolledCourse.EnrolledStudents++;
-            dataAccess.SaveStudents();
+            var enrolledCourse = TempDB.Courses.FirstOrDefault(c => c.ID == enrollCourseDTO.CourseID);
+            enrolledCourse.EnrolledStudents++;
+            TempDB.OnlineStudent.SignedUpCourses.Add(enrolledCourse);
+
+            dataAccess.SaveCourses();
+            dataAccess.SaveOnlineStudent();
+            dataAccess.SaveTheTeacherWhoOwnsThisCourse(enrollCourseDTO);
         }
     }
 }

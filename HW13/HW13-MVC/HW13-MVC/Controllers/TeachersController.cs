@@ -12,6 +12,7 @@ namespace HW13_MVC.Controllers
         private TeacherCRUD teacherCRUD = new TeacherCRUD();
         private CourseCRUD courseCRUD = new CourseCRUD();
         private TeacherCourseUtilities teacherCourseUtilities = new TeacherCourseUtilities();
+
         public IActionResult Index()
         {
             return View();
@@ -65,10 +66,11 @@ namespace HW13_MVC.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult GradingStudents([FromForm]List<GradingStudentsDTO> gradingStudentsDTO)
-        //{
-
-        //}
+        [HttpPost]
+        public IActionResult GradingStudents([FromForm] GradingStudentsDTO gradingStudentsDTO)
+        {
+            teacherCourseUtilities.Grading(gradingStudentsDTO);
+            return RedirectToAction("Home");
+        }
     }
 }

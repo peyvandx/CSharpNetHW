@@ -1,4 +1,5 @@
 ﻿using HW13_MVC.Entities;
+using HW13_MVC.Models;
 using HW13_MVC.TempDataBase;
 
 namespace HW13_MVC.Utilities
@@ -63,6 +64,25 @@ namespace HW13_MVC.Utilities
         {
             var fileData = File.ReadAllText(_idCounterPath);
             return deserialization.DeserializeIdCounter(fileData);
+        }
+
+        public void SaveOnlineStudent()
+        {
+            var onlineStudent = TempDB.Students.FirstOrDefault(s => s.ID == TempDB.OnlineStudent.ID);
+            onlineStudent.SignedUpCourses = TempDB.OnlineStudent.SignedUpCourses;
+            SaveStudents();
+        }
+
+        public void SaveTheTeacherWhoOwnsThisCourse(EnrollCourseDTO enrollCourseDTO)
+        {
+            var theTeacherWhoOwnsThisCourse = TempDB.Teachers.FirstOrDefault(t => t.Courses.Any(c => c.ID == enrollCourseDTO.CourseID));
+
+            if (theTeacherWhoOwnsThisCourse != null)
+            {
+                var enrolledCourse = theTeacherWhoOwnsThisCourse.Courses.Find(c => c.ID == enrollCourseDTO.CourseID);
+                enrolledCourse.EnrolledStudents++;
+                SaveTeachers();
+            }
         }
     }
 }
