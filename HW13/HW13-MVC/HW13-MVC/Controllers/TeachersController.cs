@@ -72,5 +72,11 @@ namespace HW13_MVC.Controllers
             teacherCourseUtilities.Grading(gradingStudentsDTO);
             return RedirectToAction("Home");
         }
+
+        public IActionResult Logout()
+        {
+            TempDB.OnlineTeacher = new Teacher();
+            return RedirectToAction("Index");
+        }
     }
 }

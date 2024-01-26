@@ -47,6 +47,14 @@
                                     <li class="list-group-item">ظرفیت: @course.Capacity</li>
                                     <li class="list-group-item">مدت زمان: @course.Duration</li>
                                     <li class="list-group-item">تعداد دانشجوها: @course.EnrolledStudents</li>
+                                    @if (course.StudentGrade == null)
+                                    {
+                                        <li class="list-group-item">نمره هنوز ثبت نشده</li>
+                                    }
+                                    else
+                                    {
+                                        <li class="list-group-item">نمره: @course.StudentGrade</li>
+                                    }
                                 </ul>
                                 <a class="btn btn-outline-info">وارد شدن</a>
                             </div>

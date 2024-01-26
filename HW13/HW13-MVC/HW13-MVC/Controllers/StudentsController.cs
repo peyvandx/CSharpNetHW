@@ -57,5 +57,11 @@ namespace HW13_MVC.Controllers
             studentCourseUtilities.EnrollCourse(enrollCourseDTO);
             return RedirectToAction("Home");
         }
+
+        public IActionResult Logout()
+        {
+            TempDB.OnlineStudent = new Student();
+            return RedirectToAction("Index");
+        }
     }
 }

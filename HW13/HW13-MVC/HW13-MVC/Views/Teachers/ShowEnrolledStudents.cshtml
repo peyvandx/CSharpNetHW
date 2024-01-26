@@ -1,44 +1,44 @@
 ﻿@model GradingStudentsDTO
 
-<form asp-controller="Teachers" asp-action="GradingStudents" method="post">
-    <table class="table">
-        <thead>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in ViewBag.EnrolledStudents)
+        {
+            <form asp-controller="Teachers" asp-action="GradingStudents" method="post">
             <tr>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Grade</th>
+                <input hidden asp-for="CourseID" value="@ViewBag.CourseId"></input>
+                <input hidden asp-for="StudentID" value="@student.ID"></input>
+                <input hidden asp-for="Email" value="@student.Email"></input>
+                <th>@student.FirstName</th>
+                <td>@student.LastName</td>
+                <td>@student.Email</td>
+                <td><input class="input-sm form-control-sm" type="number" asp-for="Grade" /></td>
+                <td><button type="submit" class="btn btn-outline-secondary">ثبت نمره</button></td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var student in ViewBag.EnrolledStudents)
-            {
-            <tr>
-            <input hidden asp-for="CourseID" value="@ViewBag.CourseId"></input>
-            <input hidden asp-for="StudentID" value="@student.ID"></input>
-            <input hidden asp-for="Email" value="@student.Email"></input>
-            <th>@student.FirstName</th>
-            <td>@student.LastName</td>
-            <td>@student.Email</td>
-            <td><input class="input-sm form-control-sm" type="number" asp-for="Grade" /></td>
-            </tr>
-            }
-            @* @for (int i = 0; i < ViewBag.EnrolledStudents.Count; i++)
-            {
+            </form>
+        }
+        @* @for (int i = 0; i < ViewBag.EnrolledStudents.Count; i++)
+        {
 
-                <tr>
-                    <input hidden asp-for="[@i].CourseID" value="@ViewBag.CourseId"></input>
-                    <input hidden asp-for="[@i].StudentID" value="@ViewBag.EnrolledStudents[i].ID"></input>
-                    <input hidden asp-for="[@i].Email" value="@ViewBag.EnrolledStudents[i].Email"></input>
-                    @* <th hidden>@ViewBag.CourseId</th>
-                    <th>@ViewBag.EnrolledStudents[i].FirstName</th>
-                    <td>@ViewBag.EnrolledStudents[i].LastName</td>
-                    <td>@ViewBag.EnrolledStudents[i].Email</td>
-                    <td><input class="input-sm form-control-sm" type="number" asp-for="[@i].Grade" /></td>
-                </tr>
+        <tr>
+        <input hidden asp-for="[@i].CourseID" value="@ViewBag.CourseId"></input>
+        <input hidden asp-for="[@i].StudentID" value="@ViewBag.EnrolledStudents[i].ID"></input>
+        <input hidden asp-for="[@i].Email" value="@ViewBag.EnrolledStudents[i].Email"></input>
+        @* <th hidden>@ViewBag.CourseId</th>
+        <th>@ViewBag.EnrolledStudents[i].FirstName</th>
+        <td>@ViewBag.EnrolledStudents[i].LastName</td>
+        <td>@ViewBag.EnrolledStudents[i].Email</td>
+        <td><input class="input-sm form-control-sm" type="number" asp-for="[@i].Grade" /></td>
+        </tr>
 
-            } *@
-        </tbody>
-    </table>
-    <button type="submit" class="btn btn-outline-warning">ثبت نمرات</button>
-</form>
+        } *@
+    </tbody>
+</table>
